@@ -210,6 +210,17 @@ function(set_target_properties_obs target)
           )
 
           install(
+            PROGRAMS
+              "${cef_location}/chrome-sandbox"
+              "${cef_location}/libEGL.so"
+              "${cef_location}/libGLESv2.so"
+              "${cef_location}/libvk_swiftshader.so"
+              "${cef_location}/libvulkan.so.1"
+            DESTINATION "${OBS_PLUGIN_DESTINATION}/core"
+            COMPONENT Runtime
+          )
+
+          install(
             DIRECTORY "${cef_root_location}/Resources/locales"
             DESTINATION "${OBS_PLUGIN_DESTINATION}/core"
             USE_SOURCE_PERMISSIONS
